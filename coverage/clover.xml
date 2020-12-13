@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1607648723519" clover="3.2.0">
+  <project timestamp="1607648723519" name="All files">
+    <metrics statements="69" coveredstatements="64" conditionals="10" coveredconditionals="8" methods="36" coveredmethods="32" elements="115" coveredelements="104" complexity="0" loc="69" ncloc="69" packages="1" files="2" classes="2"/>
+    <file name="todo.js" path="C:\Users\kostij\launch_school_courses_and_repos\todolist_class\todo.js">
+      <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="5"/>
+      <line num="9" count="60" type="stmt"/>
+      <line num="10" count="60" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="17" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="18" count="11" type="stmt"/>
+      <line num="22" count="19" type="stmt"/>
+      <line num="26" count="7" type="stmt"/>
+      <line num="30" count="28" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="38" count="1" type="stmt"/>
+    </file>
+    <file name="todolist.js" path="C:\Users\kostij\launch_school_courses_and_repos\todolist_class\todolist.js">
+      <metrics statements="58" coveredstatements="54" conditionals="8" coveredconditionals="6" methods="30" coveredmethods="27"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="6" count="23" type="stmt"/>
+      <line num="7" count="23" type="stmt"/>
+      <line num="11" count="66" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="15" count="65" type="stmt"/>
+      <line num="19" count="14" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="31" count="14" type="stmt"/>
+      <line num="32" count="12" type="stmt"/>
+      <line num="36" count="22" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="4" type="stmt"/>
+      <line num="42" count="4" type="stmt"/>
+      <line num="44" count="4" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="50" count="1" type="stmt"/>
+      <line num="54" count="4" type="stmt"/>
+      <line num="58" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="66" count="2" type="stmt"/>
+      <line num="68" count="1" type="stmt"/>
+      <line num="72" count="11" type="stmt"/>
+      <line num="76" count="6" type="stmt"/>
+      <line num="80" count="3" type="stmt"/>
+      <line num="82" count="3" type="stmt"/>
+      <line num="83" count="9" type="cond" truecount="2" falsecount="0"/>
+      <line num="84" count="4" type="stmt"/>
+      <line num="88" count="3" type="stmt"/>
+      <line num="92" count="0" type="stmt"/>
+      <line num="96" count="3" type="stmt"/>
+      <line num="100" count="3" type="stmt"/>
+      <line num="104" count="0" type="stmt"/>
+      <line num="106" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="107" count="0" type="stmt"/>
+      <line num="112" count="12" type="stmt"/>
+      <line num="116" count="6" type="stmt"/>
+      <line num="120" count="3" type="stmt"/>
+      <line num="124" count="1" type="stmt"/>
+      <line num="199" count="1" type="stmt"/>
+      <line num="200" count="1" type="stmt"/>
+      <line num="201" count="1" type="stmt"/>
+      <line num="202" count="1" type="stmt"/>
+      <line num="203" count="1" type="stmt"/>
+      <line num="204" count="1" type="stmt"/>
+      <line num="205" count="1" type="stmt"/>
+      <line num="207" count="1" type="stmt"/>
+      <line num="208" count="1" type="stmt"/>
+      <line num="209" count="1" type="stmt"/>
+      <line num="210" count="1" type="stmt"/>
+      <line num="211" count="1" type="stmt"/>
+      <line num="212" count="1" type="stmt"/>
+      <line num="215" count="1" type="stmt"/>
+      <line num="216" count="1" type="stmt"/>
+      <line num="218" count="1" type="stmt"/>
+      <line num="220" count="1" type="stmt"/>
+      <line num="221" count="1" type="stmt"/>
+      <line num="223" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
