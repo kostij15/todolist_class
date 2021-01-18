@@ -23,109 +23,120 @@ describe('TodoList', () => {
     expect(list.size()).toBe(3);
   });
 
-  test('calling toArray returns the todo list in array format', () => {
-    expect(list.toArray()).toEqual([todo1, todo2, todo3]);
+  //toArray
+  test('todolist can be converted into an array', () => {
+    let expectedArray = [todo1, todo2, todo3];
+
+    expect(list.toArray()).toEqual(expectedArray);
   });
 
-  test('calling first returns the first todo on the list', () => {
+  //first
+  test('first method provides the first todo in the todolist', () => {
     expect(list.first()).toEqual(todo1);
   });
 
-  test('calling last returns the last todo on the list', () => {
+  //last
+  test('last method provides the most recent todo in the todolist', () => {
     expect(list.last()).toEqual(todo3);
   });
 
-  test('calling shift removes and returns the first item in the list', () => {
-    let shiftedTodo = list.shift();
-    expect(shiftedTodo).toEqual(todo1);
+  //shift
+  test('shift removes and returns the first item in the todolist', () => {
+    //returns first item
+    expect(list.shift()).toEqual(todo1);
+
+    //removes first item
     expect(list.toArray()).toEqual([todo2, todo3]);
+    expect(list.size()).toBe(2);
   });
 
-  test('calling pop removes and returns the last item in the list', () => {
-    let shiftedTodo = list.pop();
-    expect(shiftedTodo).toEqual(todo3);
+  //pop
+  test('pop method removes and returns the last item in the todolist', () => {
+    //returns last item
+    expect(list.pop()).toEqual(todo3);
+
+    //removes last item
     expect(list.toArray()).toEqual([todo1, todo2]);
   });
 
-  test('calling isDone returns true when all items in the list are done, false otherwise', () => {
-    let notDoneList = list.allNotDone();
+  //isDone
+  test('isDone method returns true when all items in list are marked done', () => {
+    //all items not done
     expect(list.isDone()).toBe(false);
-
-    let doneList = list.allDone();
-    expect(doneList.isDone()).toBe(true);
   });
 
-  test("adding an object that isn't TOdo will result in a TypeError raised", () => {
-    expect(() => list.add({})).toThrow(TypeError);
+  test('add method raises a TypeError when you attempt to add an item to a list and it isn\'t a todo object', () => {
+    expect(() => list.push({ a: 1 })).toThrow(TypeError);
   });
 
-  test("calling itemAt returns the item at the index specified and returns a ReferenceError if it doesn't exist", () => {
-    expect(() => list.itemAt(3)).toThrow(ReferenceError);
-    expect(list.itemAt(1)).toEqual(todo2);
+  test('itemAt method returns the item correspodnign to where it is in the todolist', () => {
+    //return correct item
+    expect(list.itemAt(0)).toEqual(todo1);
+
+    //raises ReferenceError if we specify an index with no element
+    expect(() => list.itemAt(5)).toThrow(ReferenceError);
   });
 
-  test("calling markDoneAt sets the todo specified at the index passed as done. Throws a ReferenceError if that index passed doesn't exist", () => {
+  test('markDoneAt marks an item as completed. Raises ReferenceError', () => {
     list.markDoneAt(0);
-    list.markDoneAt(2);
     expect(list.itemAt(0).isDone()).toBe(true);
-    expect(list.itemAt(1).isDone()).toBe(false);
-    expect(list.itemAt(2).isDone()).toBe(true);
 
-    expect(() => list.itemAt(3)).toThrow(ReferenceError);
+    //Raises ReferenceError, if we specify an index with no element
+    expect(() => list.markDoneAt(-1)).toThrow(ReferenceError);
   });
 
-  test("calling markUnDoneAt sets the todo specified at the index passed undone. Throws a ReferenceError if that index passed doesn't exist", () => {
+  test('markUndoneAt marks an item undone', () => {
     list.markDoneAt(0);
     list.markUndoneAt(0);
     expect(list.itemAt(0).isDone()).toBe(false);
-
-    expect(() => list.markUndoneAt(3)).toThrow(ReferenceError)
   });
 
-  test('calling markAllDone returns true when all items in the list are done, false otherwise', () => {
+  test('markAllDone marks all items on list as completed', () => {
     list.markAllDone();
     expect(list.isDone()).toBe(true);
   });
 
-  test('calling removeAt removes the element of the index passed. Raises a ReferenceError if the index does\'nt exist', () => {
-    expect(() => list.removeAt(3)).toThrow(ReferenceError);
+  test('removeAt method removes an item from the todoList. Raises ReferenceError if the index does not exist', () => {
+    list.removeAt(2);
+    expect(list.toArray()).toEqual([todo1, todo2]);
 
-    list.removeAt(0);
-    expect(list.itemAt(0)).toEqual(todo2);
-    expect(list.itemAt(1)).toEqual(todo3);
+    expect(() => list.removeAt(2)).toThrow(ReferenceError);
+
   });
 
+  //toString part 1
   test('toString returns string representation of the list', () => {
-    let string = `---- Today's Todos ----
-[ ] Buy milk
-[ ] Clean room
-[ ] Go to the gym`;
+    let string = `---- Today's Todos ----\n[ ] Buy milk\n[ ] Clean room\n[ ] Go to the gym`;
 
     expect(list.toString()).toBe(string);
   });
 
-  test('toString returns string representation of the list', () => {
-    let string = `---- Today's Todos ----\n[ ] Buy milk\n[X] Clean room\n[ ] Go to the gym`;
+  //toString part 2
+  test('toString returns string representation of list when item is done', () => {
     list.markDoneAt(1);
+    let string = `---- Today's Todos ----\n[ ] Buy milk\n[X] Clean room\n[ ] Go to the gym`;
 
     expect(list.toString()).toBe(string);
   });
 
-  test(`toString returns string representation of the list`, () => {
-    let string = `---- Today's Todos ----\n[X] Buy milk\n[X] Clean room\n[X] Go to the gym`;
+  //toString part 3
+  test('toString returns all strings marked off of list when all items are done', () => {
     list.markAllDone();
+    let string = `---- Today's Todos ----\n[X] Buy milk\n[X] Clean room\n[X] Go to the gym`;
 
     expect(list.toString()).toBe(string);
   });
 
-  test("forEach iterates over the elements in list but should return undefined", () => {
-    let arr = []
-    list.forEach(elem => arr.push(elem));
-
-    expect(list.forEach(elem => elem)).toBeUndefined();
+  //forEach
+  test('forEach iterates over list. Doesn\'t return anything (undefined)', () => {
+    let arr = [];
+    list.forEach(item => arr.push(item));
     expect(arr).toEqual([todo1, todo2, todo3]);
+
+    expect(list.forEach(item => item)).toBeUndefined();
   });
 
+  //filter
   test('filter returns new TodoList object with filtered todos', () => {
     todo1.markDone();
     let newList = new TodoList(list.title);
@@ -136,5 +147,4 @@ describe('TodoList', () => {
     let doneItems = list.filter(todo => todo.isDone());
     expect(doneItems.toString()).toBe(newList.toString());
   });
-
 });
